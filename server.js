@@ -1,16 +1,14 @@
-// Instalar el servidor express
-const express = require ('express');
-const path = require ('path');
+const path = require('path');
+const express = require('express');
+const app = express();
 
-const app = express ();
+// Serve static files
+app.use(express.static(__dirname + '/dist'));
 
-// Servir solo los archivos estáticos del directorio dist
-app.use (express.static (__ dirname + '/dist/frontEnd'));
-
-app.get ('/ *', función (req, res) {
-    
-res.sendFile (path.join (__ dirname + '/dist/frontEnd/index.html'));
+// Send all requests to index.html
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
-// Inicie la aplicación escuchando en el puerto Heroku predeterminado
-app.listen (process.env.PORT || 8080);
+// default Heroku port
+app.listen(process.env.PORT || 5000);

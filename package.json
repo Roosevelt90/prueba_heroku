@@ -1,10 +1,10 @@
 {
-    "name": "prueba-insoftar",
+    "name": "MY_APP_NAME",
     "version": "1.0.0",
     "autor": "Roosevelt Diaz",
     "email": "rdt-2012@hotmail.com",
     "scripts": {
-        "heroku-postbuild": "ng build --prod",
+        "postinstall": "ng build --prod",
         "ng": "ng",
         "start": "node server.js",
         "build": "ng build --prod",
@@ -12,13 +12,17 @@
         "test": "ng test",
         "test-ci": "TEST_CI=true ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "preinstall": "npm install -g @angular/cli @angular/compiler-cli typescript"
     },
     "private": true,
     "dependencies": {
+        "@angular-devkit/build-angular": "~0.800.0",
         "@angular/animations": "8.0.0",
+        "@angular/cli": "8.0.2",
         "@angular/common": "8.0.0",
         "@angular/compiler": "8.0.0",
+        "@angular/compiler-cli": "8.0.0",
         "@angular/core": "8.0.0",
         "@angular/forms": "8.0.0",
         "@angular/platform-browser": "8.0.0",
@@ -68,8 +72,8 @@
         "tslint": "5.11.0",
         "typescript": "3.4.5"
     },
-	 "engines": {
-		"node": "11.10.0",
-		"npm": "6.7.0"
-  }
+    "engines": {
+        "node": "11.10.0",
+        "npm": "6.7.0"
+    }
 }
